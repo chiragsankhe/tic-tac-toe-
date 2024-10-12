@@ -51,11 +51,31 @@ boxes.forEach((box) =>
     });
 });
 
+const disableBoxs = () =>
+    {
+        for(let box of boxes)
+        {
+            box.disabled = true;
+        }
+    }
+
+
+    
+const enableBoxs = () =>
+    {
+        for(let box of boxes)
+        {
+            box.disabled = false;
+            box.innerText = "";
+        }
+    }
+
 
 const showWinner = (winner) =>
 {
     msg.innerText = `Congratulation , winner is ${winner}`;
     msgContainer.classList.remove("hide");
+    disableBoxs();
 }
 
 
@@ -81,23 +101,9 @@ const checkWinner = () =>
 
 
 
-const disableBoxs = () =>
-{
-    for(let box of boxes)
-    {
-        box.disabled = true;
-    }
-}
 
 
-const enableBoxs = () =>
-    {
-        for(let box of boxes)
-        {
-            box.disabled = false;
-            box.innerText = "";
-        }
-    }
+
 
     newGameBtn.addEventListener("click",resetGame);
     resetBtn.addEventListener("click",resetGame);
